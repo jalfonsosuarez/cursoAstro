@@ -1,36 +1,21 @@
 ---
-import Navbar from "../components/Navbar.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 
 const name = "José Alfonso Suárez Moreno";
 const title = "Home Page";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <Navbar />
-    <h1>{name}</h1>
+<MainLayout title="Home Page">
+  <h1>{name}</h1>
 
-    <p>Momento actual: {new Date().toLocaleTimeString()}</p>
-    <p id="current-time">Momento actual:</p>
+  <p>Momento actual: {new Date().toLocaleTimeString()}</p>
+  <p id="current-time">Momento actual:</p>
 
-    <footer>Año: 2023</footer>
-    <script>
-      const footer = document.querySelector("footer") as HTMLElement;
-      const currentTimeParagraph = document.querySelector(
-        "#current-time"
-      ) as HTMLParagraphElement;
+  <script>
+    const currentTimeParagraph = document.querySelector(
+      "#current-time"
+    ) as HTMLParagraphElement;
 
-      const currentYear: number = new Date().getFullYear();
-      footer.innerText = `Año: ${currentYear}`;
-
-      currentTimeParagraph.innerText = `Momento actual real: ${new Date().toLocaleTimeString()}`;
-    </script>
-  </body>
-</html>
+    currentTimeParagraph.innerText = `Momento actual real: ${new Date().toLocaleTimeString()}`;
+  </script>
+</MainLayout>

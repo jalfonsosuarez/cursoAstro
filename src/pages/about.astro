@@ -1,19 +1,17 @@
 ---
-import Navbar from "../components/Navbar.astro";
+import CustomTitle from "../components/CustomTitle.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 
 const name = "About";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>About</title>
-  </head>
-  <body>
-    <Navbar />
-    <h1>{name}</h1>
-  </body>
-</html>
+<MainLayout title="About Page">
+  <h1>{name}</h1>
+  <CustomTitle title=`Custom title: ${name}` />
+</MainLayout>
+
+<style is:global>
+  h1 {
+    color: red;
+  }
+</style>
